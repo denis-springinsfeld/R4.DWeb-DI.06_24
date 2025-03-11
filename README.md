@@ -97,7 +97,6 @@ className={`rounded-lg bg-emerald-600 px-5 py-2 font-semibold text-white hover:b
 
 - 🚀 Concaténation des classes à l'aide du template littéral. Qu'observez-vous ?
 
-- Relancer le serveur. Qu'observez-vous ?
 
 - Idem testez avec `bg-red-500`.
 
