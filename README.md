@@ -316,56 +316,34 @@ https://oklch.com/
 
 ```jsx
 import { cva } from "class-variance-authority";
-import { cn } from "../../lib/utils";
+import { cn } from "./utils/cn";
 
-const buttonVariants = cva(
-  "focus-visible:ring-ring ring-offset-background relative inline-flex cursor-pointer items-center justify-center rounded-md align-bottom text-sm font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50",
-  {
-    variants: {
-      variant: {
-        default: "text-primary-foreground bg-primary hover:bg-primary/90",
-        destructive:
-          "text-destructive-foreground bg-destructive hover:bg-destructive/90",
-        outline:
-          "border-input hover:text-accent-foreground border hover:bg-accent",
-        secondary:
-          "text-secondary-foreground bg-secondary hover:bg-secondary/80",
-        ghost: "hover:text-accent-foreground hover:bg-accent",
-        link: "text-primary underline-offset-4 hover:underline",
-      },
-      size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
-      },
-      iconPos: {
-        none: "",
-        left: "flex-row gap-2",
-        right: "flex-row-reverse gap-2",
-        loading: "gap-2",
-      },
+const buttonVariants = cva("rounded-md font-medium focus:outline-none", {
+  variants: {
+    variant: {
+      default:
+        "bg-cyan-500 text-white shadow-lg hover:bg-cyan-400 focus:bg-cyan-400 focus:ring-cyan-500",
+      destructive:
+        "bg-red-500 text-white shadow-lg hover:bg-red-400 focus:bg-red-400 focus:ring-red-500",
     },
-
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-      iconPos: "none",
+    size: {
+      default: "h-10 px-4 py-2",
+      sm: "h-9 rounded-md px-3",
+      lg: "h-11 rounded-md px-8",
     },
   },
-);
+
+  defaultVariants: {
+    variant: "default",
+    size: "default",
+  },
+});
 
 // Interface simplifiée avec uniquement les props nécessaires
 
 interface ButtonProps {
-  variant?:
-    | "default"
-    | "destructive"
-    | "outline"
-    | "secondary"
-    | "ghost"
-    | "link";
-  size?: "default" | "sm" | "lg" | "icon";
+  variant?: "default" | "destructive";
+  size?: "default" | "sm" | "lg";
   children?: React.ReactNode;
   className?: string;
 }
@@ -389,12 +367,13 @@ function Button({
   );
 }
 
-
-export default function App(){
-  return(
-    <Button variant="default" size="default" className="text-accent">
+export default function App() {
+  return (
+    <Button variant="destructive" size="lg">
       Click me
     </Button>
-  )
+  );
 }
+
+
 ```
