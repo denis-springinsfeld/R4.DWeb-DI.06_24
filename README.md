@@ -48,8 +48,8 @@ Ajouter au fichier `.prettierrc` à votre projet.
 // .prettierrc
 {
   "plugins": ["prettier-plugin-tailwindcss"],
-  "tailwindStylesheet": "./src/index.css"
-  // "tailwindFunctions": ["cva"]
+  "tailwindStylesheet": "./src/index.css",
+  "tailwindFunctions": ["cva"]
 }
 ```
 
@@ -161,7 +161,7 @@ npm install clsx
 
 ```javascript
 // Créer un répertoire libs dans src et créer un fichier utils.ts
-import { type ClassValue, clsx } from "";
+import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
